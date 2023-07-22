@@ -4,14 +4,6 @@ skeleton environment inside which you can write your code, then
 simulate and synthesize it using UIUC's Synopsys licenses, available
 to you via EWS.
 
-See the Makefile to get an idea of the feature set supported:
-- Simulation using Synopsys VCS, with support for UVM, for which
-  you'll need to have $UVM_HOME on your $PATH.
-- Synthesis is done using the generic FreePDK45 using Synopsys DC,
-  which you'll need to have on your $PATH as $STD_CELL_LIB.
-
-Run with ``make run``. The synthesis target is ``make synth``.
-
 ** Quickstart with EWS (UIUC students/employees)
 
 =unix>= refers to any UNIX-y prompt. These instructions should work on
@@ -88,3 +80,12 @@ You can alternately add the =-fsdb= option to VCS (using the
 Makefile), then view the FSDB using Verdi, but VNC connections are
 slow especially if you aren't in Urbana-Champaign (as is the case for
 me when I'm writing this).
+
+** Quickstart for advanced users
+See the Makefile to get an idea of the feature set supported:
+- Simulation using Synopsys VCS, with support for UVM, for which
+  you'll need to have $UVM_HOME on your $PATH.
+- Synthesis is done using the generic FreePDK45 using Synopsys DC,
+  which you'll need to have on your $PATH as $STD_CELL_LIB.
+
+Run with ``make run``. The synthesis target is ``make synth``.
