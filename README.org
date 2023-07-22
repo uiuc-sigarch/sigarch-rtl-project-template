@@ -1,0 +1,90 @@
+* SIGARCH RTL Project Template
+This is SIGARCH's RTL project template. In essence, this provides a
+skeleton environment inside which you can write your code, then
+simulate and synthesize it using UIUC's Synopsys licenses, available
+to you via EWS.
+
+See the Makefile to get an idea of the feature set supported:
+- Simulation using Synopsys VCS, with support for UVM, for which
+  you'll need to have $UVM_HOME on your $PATH.
+- Synthesis is done using the generic FreePDK45 using Synopsys DC,
+  which you'll need to have on your $PATH as $STD_CELL_LIB.
+
+Run with ``make run``. The synthesis target is ``make synth``.
+
+** Quickstart with EWS (UIUC students/employees)
+
+=unix>= refers to any UNIX-y prompt. These instructions should work on
+Linux, macOS, and WSL.
+
+*** Setup SSH Key Pair
+First, make sure you can SSH into EWS.
+#+begin_src sh
+  unix> ssh netid@linux.ews.illinois.edu
+#+end_src
+
+This will ask for the password associated with your NetID, then log
+you into a remote EWS machine. Let's set it up so that you don't need
+to enter your password every time:
+
+#+begin_src sh
+  unix> ssh-keygen -t rsa
+  unix> ssh-copy-id netid@linux.ews.illinois.edu
+#+end_src
+
+If your system doesn't have =ssh-copy-id=, you can instead do:
+#+begin_src sh
+  # If ssh-copy-id didn't work.
+  unix> cat ~/.ssh/id_rsa.pub | ssh netid@linux.ews.illinois.edu "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+#+end_src
+
+Now, try:
+#+begin_src sh
+  unix> ssh netid@linux.ews.illinois.edu
+#+end_src
+
+You should get logged in without needing to enter your password.
+
+*** Clone this repository
+#+begin_src sh
+  unix> git clone https://github.com/uiuc-sigarch/sigarch-rtl-project-template
+  unix> cd sigarch-rtl-project-template
+#+end_src
+
+*** Copy over =setup_synopsys_toolchain.sh=
+This repository provides a file that needs to reside in your EWS home
+folder. Copy it over with:
+#+begin_src sh
+  unix> scp setup_synopsys_toolchain.sh netid@linux.ews.illinois.edu:/home/netid
+#+end_src
+
+You may need to make the script executable:
+#+begin_src sh
+  unix> ssh netid@linux.ews.illinois.edu "chmod +x ~/setup_synopsys_toolchain.sh"
+#+end_src
+
+*** Put your NetID into =run_on_ews.sh=
+Open =run_on_ews.sh= in your favorite editor, and change =netid= on
+line 11 to your NetID.
+
+*** Run a sim
+Running a sim is now easy:
+#+begin_src sh
+  unix> ./run_on_ews.sh # rsync's the source, runs the sim, rsync's the artifacts
+#+end_src
+
+The artifacts (compile log, simulation log, VCD waveform) are put in
+=ews_run_artifacts=. See if you can find a UVM info message saying
+"Hello world". Feel free to edit =run_on_ews.sh= to get more of the
+artifacts locally.
+
+*** View the waveform
+To view the waveform, you can use GTKWave:
+#+begin_src sh
+  unix> gtkwave ews_run_artifacts/dump.vcd &
+#+end_src
+
+You can alternately add the =-fsdb= option to VCS (using the
+Makefile), then view the FSDB using Verdi, but VNC connections are
+slow especially if you aren't in Urbana-Champaign (as is the case for
+me when I'm writing this).
