@@ -16,8 +16,8 @@ First, make sure you can SSH into EWS.
 #+end_src
 
 This will ask for the password associated with your NetID, then log
-you into a remote EWS machine. Let's set it up so that you don't need
-to enter your password every time:
+you into a remote EWS machine. Log out of EWS.
+Let's set it up so that you don't need to enter your password every time:
 
 #+begin_src sh
   unix> ssh-keygen -t rsa
@@ -35,7 +35,9 @@ Now, try:
   unix> ssh netid@linux.ews.illinois.edu
 #+end_src
 
-You should get logged in without needing to enter your password.
+You should get logged in without needing to enter your password. Now,
+logout with Ctrl-D. The rest of these commands should all be run on
+your local machine.
 
 *** Clone this repository
 #+begin_src sh
