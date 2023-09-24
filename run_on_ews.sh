@@ -8,7 +8,7 @@
 #                especially for viewing waves (X forwarding/VNC is slow).
 #------------------------------------------------------------------------
 
-remote_server="avn5@linux.ews.illinois.edu"
+remote_server="netid@linux.ews.illinois.edu"
 remote_directory="~/sigarch"
 current_project="hello-world"
 output_directory="./ews_run_artifacts"
