@@ -12,6 +12,8 @@ remote_server="netid@linux.ews.illinois.edu"
 remote_directory="~/sigarch_blank_rtl_project"
 output_directory="./ews_run_artifacts"
 
+mkdir -p $output_directory
+
 rsync -avz . "$remote_server:$remote_directory" --exclude doc --exclude ews_run_artifacts --exclude .git
 ssh "$remote_server" "source ~/setup_synopsys_toolchain.sh && cd $remote_directory && make run"
 rsync -avz "$remote_server:$remote_directory/sim/dump.vcd" "$output_directory"
