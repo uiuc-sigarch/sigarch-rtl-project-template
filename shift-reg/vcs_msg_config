@@ -1,0 +1,15 @@
+// Message configuration for VCS - the goal is to turn off noisy lints from UVM source.
+// There's probably a better way to do this, but this'll do for now.
+
+{ +warn=noMC-MTCNSC;
+}
+
+{ +lint=all;
+  -tree=uvm_pkg;
+  -file=$UVM_HOME/src/base/uvm_globals.svh;
+  -file=$UVM_HOME/src/reg/sequences/uvm_reg_mem_shared_access_seq.svh;
+  -file=$UVM_HOME/src/reg/sequences/uvm_mem_access_seq.svh;
+  -file=$UVM_HOME/src/reg/sequences/uvm_mem_walk_seq.svh;
+  -file=$UVM_HOME/src/reg/uvm_reg_sequence.svh;
+  -file=$UVM_HOME/src/seq/uvm_sequence_builtin.svh;
+}
