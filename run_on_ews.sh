@@ -9,7 +9,7 @@
 #------------------------------------------------------------------------
 
 remote_server="netid@linux.ews.illinois.edu"
-remote_directory="~/sigarch_blank_rtl_project"
+remote_directory="~/sigarch_blank_rtl_project/hello-world"
 output_directory="./ews_run_artifacts"
 
 mkdir -p $output_directory
