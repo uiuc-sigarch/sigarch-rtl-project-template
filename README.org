@@ -1,5 +1,5 @@
 * SIGARCH RTL Project Template
-This is SIGARCH's RTL project template. In essence, this provides a
+This is SIGARCH's RTL project template. It provides a
 skeleton environment inside which you can write your code, then
 simulate and synthesize it using UIUC's Synopsys licenses, available
 to you via EWS.
